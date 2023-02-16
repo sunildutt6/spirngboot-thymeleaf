@@ -1,0 +1,23 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Customer form</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+
+	<h1>Customer confirmation page</h1>
+
+	<p
+		th:text="'The Customer is confirmed: ' + ${customer.firstName} + ' ' + ${customer.lastName}  + 
+		' and free passes value is ' +
+		 ${customer.getFreePasses()}" />
+	<p th:text="'Postal code: ' + ${customer.postalCode} " />
+	<p th:text="'Course code: ' + ${customer.courseCode} " />
+</body>
+
+</html>

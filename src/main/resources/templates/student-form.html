@@ -1,0 +1,69 @@
+
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Stduent registration form</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+	<pre>
+
+	<form th:action="@{/student/processForm}" th:object="${student}">
+	
+	First name<input type="text" th:field="*{firstName}" />
+	
+	Last name<input type="text" th:field="*{lastName}" />
+	
+	<label>Country</label>
+	<select th:field="*{country}">
+		<option th:each="option: ${student.countryOptions}"
+					th:value="${option.value}" th:text="${option.value}">
+		
+		
+		
+		<!-- <option th:value="France" th:text="France">
+		<option th:value="Germany" th:text="Germany">
+		<option th:value="India" th:text="India">-->
+	
+	
+			
+			</select>
+	
+	
+	<p>Favourite Language:</p>
+	<input type="radio" th:field="*{favouriteLanguage}" th:value="Java"
+				th:text="Java" />
+	<input type="radio" th:field="*{favouriteLanguage}"
+				th:value="JavaScript" th:text="JavaScript" />
+	<input type="radio" th:field="*{favouriteLanguage}" th:value="JavaNew"
+				th:text="JavaNew" />
+	
+	
+	
+	
+	<p>Add more language</p>
+	<input th:field="*{favouriteLanguageInput}" type="radio"
+				th:each="option: ${student.favouriteLanguageInput}"
+				th:value="${option.value}" th:text="${option.value}" />
+				
+				
+		<p>Operating system</p>
+		<input type="checkbox" th:field="*{operatingSystem}" th:value="Linux"   th:text="Linux" />
+		<input type="checkbox" th:field="*{operatingSystem}" th:value="Windows"  th:text="Windows" />	
+		<input type="checkbox" th:field="*{operatingSystem}" th:value="Mac"  th:text="Mac" />			
+				
+	
+	
+	<input type="submit" value="Submit" />
+	
+	</form>
+</pre>
+
+
+</body>
+
+</html>

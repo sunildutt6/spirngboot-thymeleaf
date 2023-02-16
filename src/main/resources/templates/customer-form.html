@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Customer form</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<style>
+.error {
+	color: "red";
+}
+</style>
+
+<body>
+
+	<h1>Customer rgistration form</h1>
+
+
+	<pre>
+	<form th:action="@{/customer/processForm}" th:object="${customer}">
+	<label>First Name:</label>
+	<input type="text" th:field="*{firstName}" />
+	
+	<label>Last Name:</label>
+	<input type="text" th:field="*{lastName}" />
+	 <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+				th:errorclass="error"></span>
+				
+	<label>Free passes:</label>
+	<input type="text" th:field="*{freePasses}" />
+	<span th:if="${#fields.hasErrors('freePasses')}"
+				th:errors="*{freePasses}" th:errorclass="error"></span>
+				
+				
+	<label>Postal Code</label>
+	<input type="text" th:field="*{postalCode}" />
+	<span th:if="${#fields.hasErrors('postalCode')}"
+				th:errors="*{postalCode}" th:errorclass="error"></span>
+				
+	<label>Course code</label>
+	<input type="text" th:field="*{courseCode}" />
+	<span th:if="${#fields.hasErrors('courseCode')}"
+				th:errors="*{courseCode}" th:errorclass="error"></span>		
+	
+	
+	<input type="submit" value="Submit" />
+
+
+	</form>
+	</pre>
+
+</body>
+
+</html>

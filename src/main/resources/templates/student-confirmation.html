@@ -1,0 +1,29 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Student confirmation</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+
+<p th:text="'The student is confirmed: '+ ${student.firstName} + ' ' +  ${student.lastName} ">
+
+
+<p th:text="'Country: ' + ${student.country}"/>
+
+<p th:text="'Favourite Language: ' + ${student.favouriteLanguage}" /> 
+<p th:text="'Favourite Language: ' + ${student.favouriteLanguageInput}" /> 
+
+
+Operating systems:
+<ul th:each="student: ${student.operatingSystem}">
+<li th:text="${student}" />
+</ul>
+
+</body>
+
+</html>
